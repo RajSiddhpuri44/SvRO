@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("RO Service CRM API is running...");
 });
-app.use("/auth", authRoute);
+app.use("/api/auth", authRoute);
 app.use("/api/clients", clientRoutes);
 app.use("/api/services", serviceRoutes);
 
