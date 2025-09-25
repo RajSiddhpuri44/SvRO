@@ -2,12 +2,14 @@
 
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-// import Dashboard from "./pages/Dashboard";
-import ClientDetails from "./pages/ClientDetails";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Container } from "react-bootstrap";
 import Login from "./components/login";
+import Signup from "./components/Signup";
+import Dashboard from "./pages/Dashboard";
+import ClientDetails from "./pages/ClientDetails";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -17,10 +19,14 @@ function App() {
         <Container>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/usercreated" element={<ClientDetails />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+
+              <Route path="/usercreated" element={<ClientDetails />} />
+            </Route>
             {/* <Route path="/client/:id" element={<ClientDetails />} /> */}
           </Routes>
-          {/* <Login /> */}
         </Container>
       </main>
       <ToastContainer
